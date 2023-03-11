@@ -13,3 +13,7 @@ In root folder and goblogsanity folder:
 In root folder and goblogsanity folder:
 
 ### `npm run dev`
+
+## Live website
+
+### `https://goblo-g.vercel.app`

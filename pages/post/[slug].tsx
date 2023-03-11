@@ -45,7 +45,7 @@ function Post(props: Props) {
       />
 
       <article className="max-w-3xl mx-auto p-5">
-        <h1 className="text-3xl mt-10 mb-3">{props.post.title}</h1>
+        <h1 className="text-3xl mt-10 mb-3 font-bold">{props.post.title}</h1>
         <h2 className="text-xl font-light text-gray-500 mb-2">
           {props.post.description}
         </h2>
@@ -58,8 +58,10 @@ function Post(props: Props) {
           />
           <p className="font-extralight text-sm">
             Posted by{" "}
-            <span className="text-green-600">{props.post.author.name}</span> -
-            Published at {new Date(props.post._createdAt).toLocaleString()}
+            <span className="text-pink-800 font-bold">
+              {props.post.author.name}
+            </span>{" "}
+            - Published at {new Date(props.post._createdAt).toLocaleString()}
           </p>
         </div>
 
@@ -83,16 +85,15 @@ function Post(props: Props) {
                   {children}
                 </a>
               ),
-              img: (props: any) => <img className="w-full" src={props._ref} />,
             }}
           />
         </div>
       </article>
 
-      <hr className="max-w-lg my-5 mx-auto border border-yellow-500" />
+      <hr className="max-w-lg my-5 mx-auto border border-pink-800" />
 
       {submitted ? (
-        <div className="flex flex-col p-10 my-10 bg-yellow-500 text-white max-w-2xl mx-auto">
+        <div className="flex flex-col p-10 my-10 bg-pink-800 text-white max-w-2xl mx-auto">
           <h3 className="text-3xl font-bold">Thank you for commenting!</h3>
           <p>A moderator must approve it so it can be displayed.</p>
         </div>
@@ -101,7 +102,9 @@ function Post(props: Props) {
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col p-5 max-w-2xl mx-auto mb-10"
         >
-          <h3 className="text-sm text-yellow-500">Enjoyed the article?</h3>
+          <h3 className="text-sm text-pink-800 font-bold">
+            Enjoyed the article?
+          </h3>
           <h4 className="text-3xl font-bold">Leave a comment below!</h4>
           <hr className="py-3 mt-2" />
 
@@ -113,47 +116,47 @@ function Post(props: Props) {
           />
 
           <label className="block mb-5">
-            <span className="text-gray-700">Name</span>
+            <span className="text-gray-700 font-bold">Name</span>
             <input
               {...register("name", { required: true })}
-              className="shadow border border-black rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 outline-none focus:border-none focus:ring"
+              className="shadow border transition ease-in-out delay-100 duration-300 border-black rounded py-2 px-3 form-input mt-1 block w-full ring-pink-800 outline-none focus:border-none focus:ring"
               placeholder=""
               type="text"
             />
+            {errors.name && (
+              <span className="text-red-500 font-bold">Name Is Required!</span>
+            )}
           </label>
           <label className="block mb-5">
-            <span className="text-gray-700">Email</span>
+            <span className="text-gray-700 font-bold">Email</span>
             <input
               {...register("email", { required: true })}
-              className="shadow border border-black rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 outline-none focus:border-none focus:ring"
+              className="shadow border transition ease-in-out delay-100 duration-300 border-black rounded py-2 px-3 form-input mt-1 block w-full ring-pink-800 outline-none focus:border-none focus:ring"
               placeholder=""
               type="text"
             />
+            {errors.email && (
+              <span className="text-red-500 font-bold">Email Is Required!</span>
+            )}
           </label>
           <label className="block mb-5">
-            <span className="text-gray-700">Comment</span>
+            <span className="text-gray-700 font-bold">Comment</span>
+
             <textarea
               {...register("comment", { required: true })}
-              className="shadow border border-black  rounded py-2 px-3 form-text-area mt-1 block w-full ring-yellow-500 outline-none focus:border-none focus:ring"
+              className="shadow border transition ease-in-out delay-100 duration-300 border-black  rounded py-2 px-3 form-text-area mt-1 block w-full ring-pink-800 outline-none focus:border-none focus:ring"
               placeholder=""
               rows={8}
             />
+            {errors.comment && (
+              <span className="text-red-500 font-bold">
+                Comment Is Required!
+              </span>
+            )}
           </label>
 
-          <div className="flex flex-col p-5">
-            {errors.name && (
-              <span className="text-red-500">Name Is Required!</span>
-            )}
-            {errors.email && (
-              <span className="text-red-500">Email Is Required!</span>
-            )}
-            {errors.comment && (
-              <span className="text-red-500">Comment Is Required!</span>
-            )}
-          </div>
-
           <input
-            className="shadow bg-yellow-500 hover:bg-yellow-300 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rouded cursor-pointer"
+            className="shadow bg-pink-800 hover:bg-pink-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded-full cursor-pointer transition ease-in-out delay-100 duration-500"
             type="submit"
           />
         </form>
@@ -161,16 +164,19 @@ function Post(props: Props) {
 
       <div
         className="flex flex-col p-10 my-10
-      max-w-2xl mx-auto shadow-yellow-500 shadow space-y-2"
+      max-w-2xl mx-auto shadow-pink-800 shadow space-y-2"
       >
         <h3 className="text-4xl">Comments</h3>
         <hr className="pb-2" />
         {props.post.comments.map((comment) => (
           <div key={comment._id}>
-            <p>
-              <span className="text-yellow-500">{comment.name}:</span>
+            <p className="font-bold">
+              <span className="text-pink-800">{comment.name}: </span>
               {comment.comment}
             </p>
+            <span className="text-xs">
+              {new Date(comment._createdAt).toLocaleString()}
+            </span>
           </div>
         ))}
       </div>

@@ -10,11 +10,9 @@ In root folder and goblogsanity folder:
 
 ## Create .env.local file in root folder and add the following code
 
-### `
-NEXT_PUBLIC_SANITY_DATASET=production
-NEXT_PUBLIC_SANITY_PROJECT_ID= your sanity project id
-SANITY_API_TOKEN= your sanity api token
-`
+### `NEXT_PUBLIC_SANITY_DATASET= production`
+### `NEXT_PUBLIC_SANITY_PROJECT_ID= your sanity project id`
+### `SANITY_API_TOKEN= your sanity api token`
 
 ## Start application in development mode
 

@@ -22,4 +22,4 @@ In root folder and goblogsanity folder:
 
 ## Live website
 
-https://goblo-g.vercel.app
+### https://goblo-g.vercel.app

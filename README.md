@@ -2,6 +2,10 @@
 
 A web application that allows users to read, write and comment blogs. This project is implemented using Nextjs, TailwindCSS and Sanity CMS.
 
+## Live website
+
+### https://goblo-g.vercel.app
+
 ## Install dependencies
 
 In root folder and goblogsanity folder:
@@ -19,7 +23,3 @@ In root folder and goblogsanity folder:
 In root folder and goblogsanity folder:
 
 ### `npm run dev`
-
-## Live website
-
-### https://goblo-g.vercel.app
